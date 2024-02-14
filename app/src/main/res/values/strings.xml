@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">ExamenIIPAMovil</string>
+    <string-array name="Generos">
+        <item>Masculino</item>
+        <item>Femenino</item>
+        <item>No lo quiero decir</item>
+    </string-array>
 </resources>
