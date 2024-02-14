@@ -13,15 +13,14 @@ public class BDHelper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        //CREACIÓN DE LAS TABLAS
-            db.execSQL("CREATE TABLE ExamenIIPAMovil"+"(" +
-                    "per_cedula INTEGER PRIMARY KEY ,"+
-                    "per_nombre text NOT NULL,"+
-                    "per_telefono text NOT NULL,"+
-                    "per_edad INTEGER NOT NULL,"+
-                    "per_Genero text NOT NULL)");
-
+        db.execSQL("CREATE TABLE ExamenIIPAMovil (" +
+                "per_cedula INTEGER," +
+                "per_nombre TEXT NOT NULL," +
+                "per_telefono TEXT NOT NULL," +
+                "per_edad INTEGER NOT NULL," +
+                "per_genero TEXT NOT NULL)");
     }
+
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {

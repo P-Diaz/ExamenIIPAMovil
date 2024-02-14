@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -38,6 +39,13 @@ public class MainActivity extends AppCompatActivity {
                 Calendario();
             }
         });
+
+        btnProcesar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Procesar();
+            }
+        });
     }
     public void Calendario() {
         Calendar calendario = Calendar.getInstance();
@@ -54,5 +62,20 @@ public class MainActivity extends AppCompatActivity {
             }
         }, anio, mes, dia);
         dpd.show();
+    }
+
+    public void Procesar() {
+        Bundle datos = new Bundle();
+
+        datos.putString("nombre", txtNombre.getText().toString());
+        datos.putString("cedula", txtCedula.getText().toString());
+        datos.putString("telefono", txtTelefono.getText().toString());
+        datos.putString("nacimiento", fecha);
+        datos.putString("genero", sprGenero.getSelectedItem().toString());
+
+
+        Intent i = new Intent(this, FichaPersonalActivity.class);
+        i.putExtras(datos);
+        startActivity(i);
     }
 }
